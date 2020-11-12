@@ -1,0 +1,4 @@
+kafka:
+  address: ${KAFKA_ADDRESS:localhost:9092}
+topic:
+  name: ${TOPIC_NAME:NEW_MESSAGE}
