@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.rbh.kafka.producer.service.MessageService;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/kafka")
@@ -18,7 +19,9 @@ public class MessageResource {
 	}
 	
 	@GetMapping
-    public void sendMessageToKafkaTopic(@RequestParam String message) {
+    public Mono<Void> sendMessageToKafkaTopic(@RequestParam String message) {
 		service.sendMessage(message);
+		
+		return Mono.empty();
     }
 }
