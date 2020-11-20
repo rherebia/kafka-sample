@@ -1,4 +1,9 @@
-kafka:
-  address: ${KAFKA_ADDRESS:kafka:9092}
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_ADDRESS:kafka:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
 topic:
   name: ${TOPIC_NAME:NEW_MESSAGE}

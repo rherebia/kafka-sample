@@ -1,4 +1,11 @@
-kafka:
-  address: ${KAFKA_ADDRESS:localhost:9092}
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_ADDRESS:localhost:9092}
+    consumer:
+      group-id: new-message-listener
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+      
 topic:
   name: ${TOPIC_NAME:NEW_MESSAGE}

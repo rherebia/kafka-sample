@@ -33,7 +33,8 @@ services:
       - TOPIC_NAME=NEW_MESSAGE
     volumes:
       - ${APPLICATION_ROOT_FOLDER}/producer:/usr/src/mymaven
-      - ${MAVEN_SETTINGS_FOLDER}:/root/.m2
+      - ${MAVEN_SETTINGS_FOLDER}:/var/maven/.m2
+    user: 1000:1000
 
   consumer:
     build:
@@ -46,4 +47,6 @@ services:
       - TOPIC_NAME=NEW_MESSAGE
     volumes:
       - ${APPLICATION_ROOT_FOLDER}/consumer:/usr/src/mymaven
-      - ${MAVEN_SETTINGS_FOLDER}:/root/.m2
+      - ${MAVEN_SETTINGS_FOLDER}:/var/maven/.m2
+    user: 1000:1000
+
